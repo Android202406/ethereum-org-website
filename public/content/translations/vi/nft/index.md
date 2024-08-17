@@ -5,7 +5,7 @@ lang: vi
 template: use-cases
 emoji: ":frame_with_picture:"
 sidebarDepth: 2
-image: /infrastructure_transparent.png
+image: /images/infrastructure_transparent.png
 alt: Biểu trưng của Eth được hiển thị qua ảnh ba chiều.
 summaryPoint1: Một cách để đại diện cho bất kỳ thứ gì độc nhất dưới dạng tài sản dựa trên Ethereum.
 summaryPoint2: NFT đang mang lại nhiều quyền lực hơn cho người tạo nội dung hơn bao giờ hết.
@@ -86,7 +86,7 @@ Tính bảo mật của Ethereum đến từ cơ chế bằng chứng cổ phầ
 
 Các vấn đề bảo mật liên quan đến NFT thường ít hay nhiều liên quan đến nạn lừa đảo, lỗ hổng hợp đồng thông minh hoặc lỗi người dùng (chẳng hạn như vô tình làm lộ khóa cá nhân), khiến cho việc bảo mật ví hữu hiệu trở nên cực kì quan trọng đối với chủ sở hữu NFT.
 
-<ButtonLink to="/security/">
+<ButtonLink href="/security/">
   Tìm hiểu thêm về bảo mật
 </ButtonLink>
 

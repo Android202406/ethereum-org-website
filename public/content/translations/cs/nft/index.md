@@ -5,7 +5,7 @@ lang: cs
 template: use-cases
 emoji: ":frame_with_picture:"
 sidebarDepth: 2
-image: /infrastructure_transparent.png
+image: /images/infrastructure_transparent.png
 alt: Logo Eth zobrazené prostřednictvím hologramu.
 summaryPoint1: Způsob, jak reprezentovat cokoliv unikátního jako majetek založený na Ethereu.
 summaryPoint2: NFT dávají tvůrcům obsahu větší moc než kdykoliv předtím.
@@ -86,7 +86,7 @@ Ethereum je zabezpečeno mechanismem proof-of-stake. Systém je navržen tak, ab
 
 Bezpečnostní otázky týkající se NFT se nejčastěji týkají podvodů s phishingem, zranitelnosti smart kontraktů nebo uživatelské chyby (jako je neúmyslné odhalení soukromého klíče). Dobrá ochrana peněženky je tedy pro majitele NFT klíčovou.
 
-<ButtonLink to="/security/">
+<ButtonLink href="/security/">
   Více o bezpečnosti
 </ButtonLink>
 

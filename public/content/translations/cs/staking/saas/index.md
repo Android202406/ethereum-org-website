@@ -4,7 +4,7 @@ description: Přehled, jak začít se zapojením do sdruženého vkládání ETH
 lang: cs
 template: staking
 emoji: ":money_with_wings:"
-image: /staking/leslie-saas.png
+image: /images/staking/leslie-saas.png
 alt: Nosorožec Leslie plovoucí v oblacích.
 sidebarDepth: 2
 summaryPoints:
@@ -78,7 +78,7 @@ Výběry vkladů byly provedeny v rámci aktualizace Šanghaj/Capella v dubnu 20
 
 Validátoři mohou také plně odejít jako validátor, který odemkne jejich zbývající ETH zůstatek pro výběr. Účty, které uvedly adresu pro provedení výběru a dokončily proces ukončení, obdrží celý zůstatek na adresu pro výběr uvedenou během příštího ověřovacího testu.
 
-<ButtonLink to="/staking/withdrawals/">Více o výběru vkladů</ButtonLink>
+<ButtonLink href="/staking/withdrawals/">Více o výběru vkladů</ButtonLink>
 </ExpandableCard>
 
 <ExpandableCard title="Co se stane, když dostanu trest?" eventCategory="SaasStaking" eventName="clicked what happens if I get slashed">

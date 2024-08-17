@@ -79,12 +79,15 @@ const getPostSlugs = (dir: string, files: string[] = []) => {
     "/developers/docs/data-and-analytics",
     "/developers/docs/data-and-analytics/block-explorers",
     "/developers/docs/data-availability",
+    "/developers/docs/data-availability/blockchain-data-storage-strategies",
     "/developers/docs/data-structures-and-encoding",
     "/developers/docs/data-structures-and-encoding/patricia-merkle-trie",
     "/developers/docs/data-structures-and-encoding/rlp",
     "/developers/docs/data-structures-and-encoding/ssz",
     "/developers/docs/data-structures-and-encoding/web3-secret-storage",
     "/developers/docs/design-and-ux",
+    "/developers/docs/design-and-ux/heuristics-for-web3",
+    "/developers/docs/design-and-ux/dex-design-best-practice",
     "/developers/docs/development-networks",
     "/developers/docs/ethereum-stack",
     "/developers/docs/evm",
@@ -174,6 +177,7 @@ const getPostSlugs = (dir: string, files: string[] = []) => {
     "/developers/tutorials/how-to-view-nft-in-metamask",
     "/developers/tutorials/how-to-write-and-deploy-an-nft",
     "/developers/tutorials/interact-with-other-contracts-from-solidity",
+    "/developers/tutorials/ipfs-decentralized-ui",
     "/developers/tutorials/kickstart-your-dapp-frontend-development-with-create-eth-app",
     "/developers/tutorials/learn-foundational-ethereum-topics-with-sql",
     "/developers/tutorials/logging-events-smart-contracts",
@@ -238,6 +242,9 @@ const getPostSlugs = (dir: string, files: string[] = []) => {
     "/contributing/translation-program/playbook",
     "/contributing/translation-program/resources",
     "/contributing/translation-program/translatathon",
+    "/contributing/translation-program/translatathon/details",
+    "/contributing/translation-program/translatathon/translatathon-hubs",
+    "/contributing/translation-program/translatathon/terms-and-conditions",
     "/contributing/translation-program/translators-guide",
     "/cookie-policy",
     "/eips",
@@ -268,6 +275,7 @@ const getPostSlugs = (dir: string, files: string[] = []) => {
     "/security",
     "/smart-contracts",
     "/staking/dvt",
+
     "/terms-of-use",
     "/web3",
     "/whitepaper",
@@ -336,7 +344,13 @@ export const getContentBySlug = (slug: string) => {
   const fileContents = fs.readFileSync(fullPath, "utf8")
   const { data, content } = matter(fileContents)
   const frontmatter = data as Frontmatter
-  const items: Omit<MdPageContent, "tocItems" | "contributors"> = {
+  const items: Omit<
+    MdPageContent,
+    | "tocItems"
+    | "contributors"
+    | "lastEditLocaleTimestamp"
+    | "lastDeployLocaleTimestamp"
+  > = {
     slug,
     content,
     frontmatter,
@@ -378,7 +392,7 @@ export const getTutorialsData = (locale: string): ITutorial[] => {
       const frontmatter = data as Frontmatter
 
       return {
-        to: join(`/${locale}/developers/tutorials`, dir),
+        href: join(`/${locale}/developers/tutorials`, dir),
         title: frontmatter.title,
         description: frontmatter.description,
         author: frontmatter.author || "",

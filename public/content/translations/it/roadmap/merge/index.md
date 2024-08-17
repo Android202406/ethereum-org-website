@@ -3,7 +3,7 @@ title: La Fusione
 description: 'Scopri La Fusione: quando la Rete principale di Ethereum ha adottato il Poof of stake.'
 lang: it
 template: upgrade
-image: /upgrades/merge.png
+image: /images/upgrades/merge.png
 alt:
 summaryPoint1: La Rete Principale di Ethereum utilizza il proof-of-stake, ma non è sempre stato così.
 summaryPoint2: L'aggiornamento dal meccanismo originale di proof-of-work al proof-of-stake, è stato detto La Fusione.
@@ -202,7 +202,7 @@ La Fusione rappresenta l'adozione formale della Beacon Chain come nuovo livello 
 
 I blocchi sono invece proposti dai nodi di convalida, che ottengono ETH in staking in cambio del diritto di partecipare al consenso. Questi aggiornamenti stabiliscono le basi per gli aggiornamenti di scalabilità futuri, incluso lo sharding.
 
-<ButtonLink to="/roadmap/beacon-chain/">
+<ButtonLink href="/roadmap/beacon-chain/">
   La beacon chain
 </ButtonLink>
 
@@ -218,7 +218,7 @@ Originariamente, il piano prevedeva di lavorare allo sharding prima della Fusion
 
 I piani per lo sharding si stanno evolvendo rapidamente, ma data la nascita e il successo delle tecnologie di livello 2 per scalare l'esecuzione delle transazioni, i piani per lo sharding hanno spostato l'attenzione sul trovare il modo ottimale per distribuire il carico per memorizzare i dati di chiamata compressi dai contratti di rollup, consentendo la crescita esponenziale della capacità di rete. Questo sarebbe impossibile senza prima passare al Proof of stake.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Sharding
 </ButtonLink>
 

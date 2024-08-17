@@ -3,7 +3,7 @@ title: İşaret Zinciri
 description: Hisse ispatını Ethereum'a tanıtan yükseltme olan İşaret Zinciri hakkında bilgi edinin.
 lang: tr
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: İşaret Zincirinin Ethereum ekosistemine hisse ispatı olarak eklenmesi.
 summaryPoint2: Original Ethereum Hisse İspatı zinciri ile eylül 2022de birleştirilmiştir.
@@ -56,7 +56,7 @@ Ethereum yükseltmelerinin tamamı bir şekilde ilişkilidir. İşaret Zincirini
 
 İlk başta İşaret Zinciri, Ethereum Ana Ağı'ndan ayrıydı, ancak 2022'de birleştirildi.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   Birleştirme
 </ButtonLink>
 
@@ -64,7 +64,7 @@ Ethereum yükseltmelerinin tamamı bir şekilde ilişkilidir. İşaret Zincirini
 
 Parçalama, Ethereum ekosistemine yalnızca bir Hisse İspatı mutabakat mekanizması ile güvenli bir şekilde girebilir. İşare Zinciri Ana Ağ ile "bireleşerek" Ethereum'un daha da ölçeklenmesine yardımcı olmak için parçalamanın önünü açan hisselemeyi tanıttı.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Parça zincirleri
 </ButtonLink>
 

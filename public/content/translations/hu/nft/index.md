@@ -5,7 +5,7 @@ lang: hu
 template: use-cases
 emoji: ":frame_with_picture:"
 sidebarDepth: 2
-image: /infrastructure_transparent.png
+image: /images/infrastructure_transparent.png
 alt: Egy Eth logó, amely hologram segítségével jelenik meg.
 summaryPoint1: Egy módszer arra, hogy egyedi dolgokat Ethereum alapú javakként jelenítsünk meg.
 summaryPoint2: Az NFT-k minden korábbinál nagyobb hatalmat adnak a tartalomgyártók kezébe.
@@ -56,7 +56,7 @@ Tegyük fel, hogy Ön egy művész, aki szeretné NFT-ként megosztani az alkot�
 
 <InfoBanner shouldSpaceBetween emoji=":eyes:" mt="8">
   <div>Fedezzen fel, vásároljon vagy készítsen saját NFT-műalkotásokat/gyűjthető tárgyakat...</div>
-  <ButtonLink to="/dapps/?category=collectibles#explore">
+  <ButtonLink href="/dapps/?category=collectibles#explore">
     Fedezzen fel NFT-műalkotásokat
   </ButtonLink>
 </InfoBanner>
@@ -93,7 +93,7 @@ Az Ethereum biztonsága a [tét igazolásából](/glossary/#pos) származik. A r
 
 Az NFT-kkel kapcsolatos biztonsági problémák leggyakrabban adathalász csalásokhoz, az okosszerződések sebezhetőségéhez vagy felhasználói hibákhoz (például a privát kulcsok véletlen felfedéséhez) kapcsolódnak, így a megfelelő tárcabiztonság kritikus fontosságú az NFT-tulajdonosok számára.
 
-<ButtonLink to="/security/">
+<ButtonLink href="/security/">
   Bővebben a biztonságról
 </ButtonLink>
 

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
-import { FaDiscord, FaGlobe, FaTwitter } from "react-icons/fa"
+import { FaDiscord, FaGlobe, FaXTwitter } from "react-icons/fa6"
 import { Flex, Heading, Icon, Stack, Text } from "@chakra-ui/react"
 
 import { Lang, WalletFilter } from "@/lib/types"
@@ -9,8 +9,10 @@ import InlineLink, { LinkProps } from "@/components/Link"
 
 import { getLocaleFormattedDate } from "@/lib/utils/time"
 
+import type { WalletMoreInfoData } from "@/hooks/useWalletTable"
+
 type WalletSocialLinksProps = {
-  wallet: Record<string, any>
+  wallet: WalletMoreInfoData
   idx: number
   filters: WalletFilter
 }
@@ -69,7 +71,7 @@ export const WalletSocialLinks = ({
 
       <Flex ms={{ lg: 2 }} gap="0.8rem">
         <SocialLink
-          to={wallet.url}
+          href={wallet.url}
           hideArrow
           customEventOptions={{
             eventCategory: "WalletExternalLinkList",
@@ -83,7 +85,7 @@ export const WalletSocialLinks = ({
 
         {wallet.discord && (
           <SocialLink
-            to={wallet.discord}
+            href={wallet.discord}
             hideArrow
             customEventOptions={{
               eventCategory: "WalletExternalLinkList",
@@ -98,7 +100,7 @@ export const WalletSocialLinks = ({
 
         {wallet.twitter && (
           <SocialLink
-            to={wallet.twitter}
+            href={wallet.twitter}
             hideArrow
             customEventOptions={{
               eventCategory: "WalletExternalLinkList",
@@ -107,7 +109,7 @@ export const WalletSocialLinks = ({
               eventValue: JSON.stringify(filters),
             }}
           >
-            <Icon as={FaTwitter} color="#1da1f2" fontSize="2xl" />
+            <Icon as={FaXTwitter} color="#1da1f2" fontSize="2xl" />
           </SocialLink>
         )}
       </Flex>

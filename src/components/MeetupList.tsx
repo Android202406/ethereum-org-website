@@ -1,13 +1,14 @@
 import { useState } from "react"
 import sortBy from "lodash/sortBy"
+import { FaChevronRight } from "react-icons/fa6"
 import {
   Box,
   Flex,
+  Icon,
   LinkBox,
   LinkOverlay,
   List,
   ListItem,
-  useColorModeValue,
   useToken,
   VisuallyHidden,
 } from "@chakra-ui/react"
@@ -23,8 +24,6 @@ import { trackCustomEvent } from "@/lib/utils/matomo"
 
 import meetups from "@/data/community-meetups.json"
 
-import { useRtlFlip } from "@/hooks/useRtlFlip"
-
 export interface Meetup {
   title: string
   emoji: string
@@ -35,13 +34,10 @@ export interface Meetup {
 const filterMeetups = (query: string): Array<Meetup> => {
   if (!query) return sortedMeetups
 
-  const lowercaseQuery = query.toLowerCase()
-
   return sortedMeetups.filter((meetup) => {
-    return (
-      meetup.title.toLowerCase().includes(lowercaseQuery) ||
-      meetup.location.toLowerCase().includes(lowercaseQuery)
-    )
+    const flag = meetup.emoji.replace(/[:_]/g, " ")
+    const searchable = [meetup.title, meetup.location, flag].join(" ")
+    return searchable.toLowerCase().includes(query.toLowerCase())
   })
 }
 
@@ -52,13 +48,7 @@ const sortedMeetups: Array<Meetup> = sortBy(meetups, ["emoji", "location"])
 // TODO prop if ordered list or unordered
 const MeetupList = () => {
   const [searchField, setSearchField] = useState<string>("")
-  const { flipForRtl } = useRtlFlip()
   const filteredMeetups = filterMeetups(searchField)
-  const listBoxShadow = useColorModeValue("tableBox.light", "tableBox.dark")
-  const listItemBoxShadow = useColorModeValue(
-    "tableItemBox.light",
-    "tableItemBox.dark"
-  )
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchField(event.target.value)
@@ -84,14 +74,18 @@ const MeetupList = () => {
         results update as you type
       </VisuallyHidden>
 
-      <List m={0} boxShadow={listBoxShadow} aria-label="Event meetup results">
+      <List
+        m={0}
+        border={"2px solid"}
+        borderColor={"offBackground"}
+        aria-label="Event meetup results"
+      >
         {filteredMeetups.map((meetup, idx) => (
           <LinkBox
             as={ListItem}
             key={idx}
             display="flex"
             justifyContent="space-between"
-            boxShadow={listItemBoxShadow}
             mb={0.25}
             p={4}
             w="100%"
@@ -101,6 +95,8 @@ const MeetupList = () => {
               boxShadow: `0 0 1px ${primaryBaseColor}`,
               bg: "tableBackgroundHover",
             }}
+            borderBottom={"2px solid"}
+            borderColor={"offBackground"}
           >
             <Flex flex="1 1 75%" me={4}>
               <Box me={4} opacity="0.4">
@@ -136,25 +132,23 @@ const MeetupList = () => {
                 {meetup.location}
               </Text>
             </Flex>
-            <Box
-              as="span"
-              _after={{
-                content: '"↗"',
-                ms: 0.5,
-                me: 1.5,
-                transform: flipForRtl,
-                display: "inline-block",
-              }}
-            ></Box>
+            <Flex alignItems={"center"}>
+              <Icon
+                as={FaChevronRight}
+                width={{ base: "14px", xl: "18px" }}
+                height={{ base: "14px", xl: "18px" }}
+                color={"text"}
+              />
+            </Flex>
           </LinkBox>
         ))}
       </List>
       <Box aria-live="assertive" aria-atomic>
         {!filteredMeetups.length && (
           <InfoBanner emoji=":information_source:">
-            <Translation id="page-community-meetuplist-no-meetups" />{" "}
+            <Translation id="page-community:page-community-meetuplist-no-meetups" />{" "}
             <InlineLink href="https://github.com/ethereum/ethereum-org-website/blob/dev/src/data/community-meetups.json">
-              <Translation id="page-community-please-add-to-page" />
+              <Translation id="page-community:page-community-please-add-to-page" />
             </InlineLink>
           </InfoBanner>
         )}

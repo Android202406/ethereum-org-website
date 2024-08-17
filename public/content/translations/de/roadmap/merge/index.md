@@ -3,7 +3,7 @@ title: Die Zusammenführung
 description: Erfahren Sie mehr über die Zusammenführung, als Mainnet Ethereum Proof-of-Stake einführte.
 lang: de
 template: upgrade
-image: /upgrades/merge.png
+image: /images/upgrades/merge.png
 summaryPoint1: Ethereum Mainnet verwendet Proof-of-Stake, aber das war nicht immer der Fall.
 summaryPoint2: Der Wechsel vom ursprünglichen Proof-of-Work Mechanismus zu Proof-of-Stake wurde Zusammenführung genannt.
 summaryPoint3: Die Zusammenführung bezieht sich auf das ursprüngliche Ethereum Mainnet, welches mit einer separaten Proof-of-Stake-Blockchain namens Beacon Chain vereinigt wurde, und somit nun beide als eine Blockchain existieren.
@@ -201,7 +201,7 @@ Die Zusammenführung stellt die formale Übernahme der Beacon Chain als neue Kon
 
 Blöcke werden stattdessen durch validierende Nodes vorgeschlagen, die ETH als Gegenleistung für das Recht auf Teilnahme am Konsens eingesetzt haben. Diese Upgrades setzten die Voraussetzungen für zukünftige Skalierbarkeitsverbesserungen, einschließlich Sharding.
 
-<ButtonLink to="/roadmap/beacon-chain/">
+<ButtonLink href="/roadmap/beacon-chain/">
   Die Beacon Chain
 </ButtonLink>
 
@@ -217,7 +217,7 @@ Ursprünglich war geplant, vor der Zusammenführung an Sharding zu arbeiten, um 
 
 Pläne für die gemeinsame Nutzung entwickeln sich rasch, aber angesichts des Anstiegs und des Erfolgs von Lay-2-Technologien, um Transaktionsausführung zu skalieren, haben sich gemeinsame Pläne auf die Suche nach dem optimalen Weg zur Verteilung der Belastung durch die Speicherung komprimierter Rufdaten aus Rollup-Verträgen verlagert. Dies ermöglicht ein exponentielles Wachstum der Netzwerkkapazität. Dies wäre ohne den ersten Übergang zu Proof-of-Stake nicht möglich.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Sharding
 </ButtonLink>
 

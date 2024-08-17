@@ -4,7 +4,7 @@ description: Přehled toho, jak začít samostatně vkládat ETH
 lang: cs
 template: staking
 emoji: ":money_with_wings:"
-image: /staking/leslie-solo.png
+image: /images/staking/leslie-solo.png
 alt: Nosorožec Leslie na svém vlastním počítačovém čipu.
 sidebarDepth: 2
 summaryPoints:
@@ -190,7 +190,7 @@ Jakmile jsou přihlašovací údaje pro výběr nastaveny, platby odměn (nashro
 
 Chcete-li odemknout a získat zpět celý zůstatek, musíte také dokončit proces opuštění validátoru.
 
-<ButtonLink to="/staking/withdrawals/">Více o výběru vkladů</ButtonLink>
+<ButtonLink href="/staking/withdrawals/">Více o výběru vkladů</ButtonLink>
 </ExpandableCard>
 
 ## Další informace {#further-reading}

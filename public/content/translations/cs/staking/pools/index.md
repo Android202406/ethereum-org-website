@@ -4,7 +4,7 @@ description: Přehled, jak začít se zapojením do sdruženého vkládání ETH
 lang: cs
 template: staking
 emoji: ":money_with_wings:"
-image: /staking/leslie-pool.png
+image: /images/staking/leslie-pool.png
 alt: Nosorožec Leslie plave v bazénu.
 sidebarDepth: 2
 summaryPoints:
@@ -68,7 +68,7 @@ Právě teď! K upgradu sítě Shanghai/Capella došlo v dubnu 2023 a zavedlo v�
 
 Případně fondy, které využívají token ERC-20 pro vkládání, umožňují uživatelům obchodovat s tímto tokenem na otevřeném trhu, což vám umožní prodat svou pozici pro vkládání a efektivně se „stáhnout“, aniž byste skutečně odstranili ETH ze smlouvy o vkládání.
 
-<ButtonLink to="/staking/withdrawals/">Více o výběru vkladů</ButtonLink>
+<ButtonLink href="/staking/withdrawals/">Více o výběru vkladů</ButtonLink>
 </ExpandableCard>
 
 <ExpandableCard title="Liší se to od vkladů s mojí výměnou?">

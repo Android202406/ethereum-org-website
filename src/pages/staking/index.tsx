@@ -9,6 +9,7 @@ import type {
   ChildOnlyProp,
   EpochResponse,
   EthStoreResponse,
+  Lang,
   StakingStatsData,
 } from "@/lib/types"
 
@@ -37,18 +38,19 @@ import Translation from "@/components/Translation"
 import { existsNamespace } from "@/lib/utils/existsNamespace"
 import { getLastDeployDate } from "@/lib/utils/getLastDeployDate"
 import { runOnlyOnce } from "@/lib/utils/runOnlyOnce"
+import { getLocaleTimestamp } from "@/lib/utils/time"
 import { getRequiredNamespacesForPage } from "@/lib/utils/translations"
 
 import { BASE_TIME_UNIT } from "@/lib/constants"
 
-import rhino from "@/public/upgrades/upgrade_rhino.png"
+import rhino from "@/public/images/upgrades/upgrade_rhino.png"
 
 type BenefitsType = {
   title: string
   emoji: string
   description: ReactNode
   linkText?: string
-  to?: string
+  href?: string
 }
 
 const PageContainer = (props: ChildOnlyProp) => (
@@ -209,6 +211,10 @@ type Props = BasePageProps & {
 
 export const getStaticProps = (async ({ locale }) => {
   const lastDeployDate = getLastDeployDate()
+  const lastDeployLocaleTimestamp = getLocaleTimestamp(
+    locale as Lang,
+    lastDeployDate
+  )
 
   const requiredNamespaces = getRequiredNamespacesForPage("/staking")
 
@@ -221,7 +227,7 @@ export const getStaticProps = (async ({ locale }) => {
       ...(await serverSideTranslations(locale!, requiredNamespaces)),
       contentNotTranslated,
       data,
-      lastDeployDate,
+      lastDeployLocaleTimestamp,
     },
     // Updated once a day
     revalidate: BASE_TIME_UNIT * 24,
@@ -263,7 +269,7 @@ const StakingPage = ({
       emoji: "🍃",
       description: t("page-staking-benefits-3-description"),
       linkText: t("page-staking-benefits-3-link"),
-      to: "/energy-consumption",
+      href: "/energy-consumption",
     },
   ]
 
@@ -273,7 +279,7 @@ const StakingPage = ({
     items: [
       {
         text: t("page-staking-dropdown-home"),
-        to: "/staking/",
+        href: "/staking/",
         matomo: {
           eventCategory: `Staking dropdown`,
           eventAction: `Clicked`,
@@ -282,7 +288,7 @@ const StakingPage = ({
       },
       {
         text: t("page-staking-dropdown-solo"),
-        to: "/staking/solo/",
+        href: "/staking/solo/",
         matomo: {
           eventCategory: `Staking dropdown`,
           eventAction: `Clicked`,
@@ -291,7 +297,7 @@ const StakingPage = ({
       },
       {
         text: t("page-staking-dropdown-saas"),
-        to: "/staking/saas/",
+        href: "/staking/saas/",
         matomo: {
           eventCategory: `Staking dropdown`,
           eventAction: `Clicked`,
@@ -300,7 +306,7 @@ const StakingPage = ({
       },
       {
         text: t("page-staking-dropdown-pools"),
-        to: "/staking/pools/",
+        href: "/staking/pools/",
         matomo: {
           eventCategory: `Staking dropdown`,
           eventAction: `Clicked`,
@@ -309,7 +315,7 @@ const StakingPage = ({
       },
       {
         text: t("page-staking-dropdown-withdrawals"),
-        to: "/staking/withdrawals/",
+        href: "/staking/withdrawals/",
         matomo: {
           eventCategory: `Staking dropdown`,
           eventAction: `Clicked`,
@@ -318,7 +324,7 @@ const StakingPage = ({
       },
       {
         text: t("page-staking-dropdown-dvt"),
-        to: "/staking/dvt/",
+        href: "/staking/dvt/",
         matomo: {
           eventCategory: `Staking dropdown`,
           eventAction: `Clicked`,
@@ -369,7 +375,7 @@ const StakingPage = ({
       <PageMetadata
         title={t("page-staking-meta-title")}
         description={t("page-staking-meta-description")}
-        image="/upgrades/upgrade_rhino.png"
+        image="/images/upgrades/upgrade_rhino.png"
       />
       <HeroStatsWrapper>
         <PageHero content={heroContent} />
@@ -398,15 +404,15 @@ const StakingPage = ({
               </H2>
               <CardGrid>
                 {benefits.map(
-                  ({ title, description, emoji, linkText, to }, idx) => (
+                  ({ title, description, emoji, linkText, href }, idx) => (
                     <StyledCard
                       title={title}
                       emoji={emoji}
                       key={idx}
                       description={description}
                     >
-                      {to && linkText && (
-                        <InlineLink href={to}>{linkText}</InlineLink>
+                      {href && linkText && (
+                        <InlineLink href={href}>{linkText}</InlineLink>
                       )}
                     </StyledCard>
                   )

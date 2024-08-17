@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import { useTranslation } from "next-i18next"
 import {
   Box,
@@ -283,7 +283,7 @@ const StakingHierarchy = () => {
           <Text>{t("page-staking-hierarchy-solo-p2")}</Text>
           <Box>
             <ButtonLink
-              to="/staking/solo/"
+              href="/staking/solo/"
               onClick={() => {
                 trackCustomEvent({
                   eventCategory: `StakingHierarchy`,
@@ -316,7 +316,7 @@ const StakingHierarchy = () => {
           <Text>{t("page-staking-hierarchy-saas-p3")}</Text>
           <Box>
             <ButtonLink
-              to="/staking/saas/"
+              href="/staking/saas/"
               onClick={() => {
                 trackCustomEvent({
                   eventCategory: `StakingHierarchy`,
@@ -361,7 +361,7 @@ const StakingHierarchy = () => {
           </Text>
           <Box>
             <ButtonLink
-              to="/staking/pools/"
+              href="/staking/pools/"
               onClick={() => {
                 trackCustomEvent({
                   eventCategory: `StakingHierarchy`,

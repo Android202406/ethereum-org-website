@@ -1,4 +1,3 @@
-import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
 import {
   Box,
@@ -10,7 +9,7 @@ import {
   useToken,
 } from "@chakra-ui/react"
 
-import type { ChildOnlyProp, Lang } from "@/lib/types"
+import type { ChildOnlyProp } from "@/lib/types"
 import type { MdPageContent, UpgradeFrontmatter } from "@/lib/interfaces"
 
 import BeaconChainActions from "@/components/BeaconChainActions"
@@ -29,7 +28,6 @@ import MergeInfographic from "@/components/MergeInfographic"
 import UpgradeStatus from "@/components/UpgradeStatus"
 
 import { getSummaryPoints } from "@/lib/utils/getSummaryPoints"
-import { getLocaleTimestamp } from "@/lib/utils/time"
 
 const Page = (props: FlexProps) => <MdPage sx={{}} {...props} />
 
@@ -62,7 +60,7 @@ export const upgradeComponents = {
 type UpgradeLayoutProps = ChildOnlyProp &
   Pick<
     MdPageContent,
-    "slug" | "tocItems" | "lastUpdatedDate" | "contentNotTranslated"
+    "slug" | "tocItems" | "lastEditLocaleTimestamp" | "contentNotTranslated"
   > & {
     frontmatter: UpgradeFrontmatter
   }
@@ -71,11 +69,10 @@ export const UpgradeLayout = ({
   frontmatter,
   slug,
   tocItems,
-  lastUpdatedDate,
+  lastEditLocaleTimestamp,
   contentNotTranslated,
 }: UpgradeLayoutProps) => {
   const { t } = useTranslation("page-upgrades")
-  const { locale } = useRouter()
 
   const summaryPoints = getSummaryPoints(frontmatter)
 
@@ -85,7 +82,7 @@ export const UpgradeLayout = ({
     items: [
       {
         text: t("page-upgrades-upgrades-beacon-chain"),
-        to: "/roadmap/beacon-chain/",
+        href: "/roadmap/beacon-chain/",
         matomo: {
           eventCategory: "upgrade menu",
           eventAction: "click",
@@ -94,7 +91,7 @@ export const UpgradeLayout = ({
       },
       {
         text: t("page-upgrades-upgrades-docking"),
-        to: "/roadmap/merge/",
+        href: "/roadmap/merge/",
         matomo: {
           eventCategory: "upgrade menu",
           eventAction: "click",
@@ -120,12 +117,10 @@ export const UpgradeLayout = ({
                 ))}
               </List>
             </Box>
-            {lastUpdatedDate && (
-              <LastUpdated>
-                {t("common:page-last-updated")}:{" "}
-                {getLocaleTimestamp(locale as Lang, lastUpdatedDate)}
-              </LastUpdated>
-            )}
+
+            <LastUpdated>
+              {t("common:page-last-updated")}: {lastEditLocaleTimestamp}
+            </LastUpdated>
           </>
         }
         heroImg={frontmatter.image}

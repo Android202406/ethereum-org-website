@@ -32,7 +32,10 @@ export type Unpacked<T> = T extends (infer U)[] ? U : T
 
 export type ChildOnlyProp = { children?: ReactNode }
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<
+  P,
+  IP
+> & {
   getLayout?: (page: ReactElement<P>) => ReactNode
 }
 
@@ -44,11 +47,11 @@ export type Root = {
   children: ReactNode
   contentIsOutdated: boolean
   contentNotTranslated: boolean
-  lastDeployDate: string
+  lastDeployLocaleTimestamp: string
 }
 
 export type BasePageProps = SSRConfig &
-  Pick<Root, "contentNotTranslated" | "lastDeployDate">
+  Pick<Root, "contentNotTranslated" | "lastDeployLocaleTimestamp">
 
 export type Frontmatter = RoadmapFrontmatter &
   UpgradeFrontmatter &
@@ -273,12 +276,6 @@ export type LocaleDisplayInfo = {
   isBrowserDefault?: boolean
 }
 
-type TranslatedStats = {
-  tmMatch: number
-  default: number
-  total: number
-}
-
 /**
  * Translation cost report
  */
@@ -347,11 +344,13 @@ export type CostLeaderboardData = Pick<
   }
 
 // GitHub contributors
+
 export type Commit = {
   commit: {
     author: {
       name: string
       email: string
+      date: string
     }
   }
   author: {
@@ -418,7 +417,7 @@ type HeroButtonProps = Omit<CallToActionProps, "index">
  * or a string. (defaults to `StaticImageData`)
  */
 export type CommonHeroProps<
-  HeroImg extends StaticImageData | string = StaticImageData
+  HeroImg extends StaticImageData | string = StaticImageData,
 > = {
   /**
    * Decorative image displayed as the full background or an aside to
@@ -456,6 +455,10 @@ export type CommonHeroProps<
    * Preface text about the content in the given page
    */
   description: ReactNode
+  /**
+   * The maximum height of the image in the hero
+   */
+  maxHeight?: string
 }
 
 // Learning Tools
@@ -485,6 +488,15 @@ export type EthStoreResponse = Data<{
   day: number
   effective_balances_sum_wei: number
 }>
+
+export type EthStakedResponse = {
+  result: {
+    rows?: {
+      cum_deposited_eth: number
+      time: string
+    }[]
+  }
+}
 
 export type EpochResponse = Data<{
   validatorscount: number
@@ -567,7 +579,7 @@ export type PhoneScreenProps = SimulatorNavProps & {
 }
 export type CommunityConference = {
   title: string
-  to: string
+  href: string
   location: string
   description: string
   startDate: string
@@ -720,7 +732,7 @@ export type NetworkUpgradeData = Record<string, NetworkUpgradeDetails>
 
 // Footer
 export type FooterLink = {
-  to: string
+  href: string
   text: TranslationKey
   isPartiallyActive?: boolean
 }

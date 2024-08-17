@@ -1,7 +1,6 @@
 import type { StaticImageData } from "next/image"
 
 import type {
-  CrowdinContributor,
   FileContributor,
   Frontmatter,
   Lang,
@@ -12,7 +11,7 @@ import type {
 
 export interface DeveloperDocsLink {
   id: TranslationKey
-  to: string
+  href: string
   path: string
   description: TranslationKey
   items: DeveloperDocsLink[]
@@ -65,7 +64,7 @@ export interface RoadmapFrontmatter extends SharedFrontmatter, ImageInfo {
   buttons: {
     label: string
     toId?: string
-    to?: string
+    href?: string
     variant?: string
   }[]
 }
@@ -105,7 +104,8 @@ export interface MdPageContent {
   content: string
   frontmatter: Frontmatter
   tocItems: ToCItem[]
-  lastUpdatedDate?: string
+  lastEditLocaleTimestamp: string
+  lastDeployLocaleTimestamp: string
   contentNotTranslated: boolean
   contributors: FileContributor[]
 }
@@ -155,11 +155,34 @@ export interface ICard {
   title: string
   description: string
   alt: string
-  to: string
+  href: string
 }
 
 export interface IGetInvolvedCard {
   emoji: string
   title: string
   description: string
+}
+
+/**
+ * TitleCardList
+ */
+
+export interface ITitleCardItem {
+  title: string
+  description: string
+  caption?: string
+  link?: string
+  image?: string
+  alt?: string
+  id?: number
+}
+
+/**
+ * Codeblock
+ */
+
+export interface CodeExample extends ITitleCardItem {
+  codeLanguage: string
+  code: string
 }

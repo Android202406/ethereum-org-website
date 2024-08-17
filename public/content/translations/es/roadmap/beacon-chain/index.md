@@ -3,7 +3,7 @@ title: La cadena de baliza
 description: 'Descubra todo lo relacionado con la cadena de baliza: la actualización que introdujo la prueba de participación en Ethereum.'
 lang: es
 template: upgrade
-image: /upgrades/core.png
+image: /images/upgrades/core.png
 alt: 
 summaryPoint1: La cadena de baliza ha introducido la prueba de participación en el ecosistema de Ethereum.
 summaryPoint2: Se fusionó con la cadena de prueba de trabajo original de Ethereum en septiembre de 2022.
@@ -56,7 +56,7 @@ Las actualizaciones de Ethereum están interrelacionadas de alguna manera. Por t
 
 En sus comienzos, la cadena de baliza existía de manera independiente a la red principal de Ethereum, pero se fusionaron en 2022.
 
-<ButtonLink to="/roadmap/merge/">
+<ButtonLink href="/roadmap/merge/">
   La Fusión
 </ButtonLink>
 
@@ -64,7 +64,7 @@ En sus comienzos, la cadena de baliza existía de manera independiente a la red 
 
 La fragmentación solo podría implementarse en el ecosistema de Ethereum de manera segura a través del mecanismo de consenso de la prueba de participación. La cadena de baliza introdujo apuestas, que se «fusionaron» con la red principal, allanando el camino para la fragmentación y así contribuir a una mayor escalabilidad de Ethereum.
 
-<ButtonLink to="/roadmap/danksharding/">
+<ButtonLink href="/roadmap/danksharding/">
   Cadenas de fragmentos
 </ButtonLink>
 
